@@ -3,10 +3,11 @@ import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
 function Nav() {
-  const [cartAmount, setCartAmount] = useState(0);
+  const [cartAmount, setCartAmount] = useState(null);
 
   const addToCart = () => {
     console.log("Product added");
+    cartAmount === 0;
     setCartAmount(cartAmount + 1);
   };
   return (
@@ -24,10 +25,10 @@ function Nav() {
         to="/Checkout"
         onClick={addToCart}
       >
-        <span className="flex row-auto flex-wrap">
-          {cartAmount}
+        <div className="flex flex-col flex-wrap">
           <BsCart2 />
-        </span>
+          <div className="text-frame text-sm mx-auto">{cartAmount}</div>
+        </div>
       </NavLink>
     </nav>
   );

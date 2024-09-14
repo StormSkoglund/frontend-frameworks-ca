@@ -1,7 +1,9 @@
 function Footer() {
   return (
     <footer>
-      <small>&copy; 2024 BuyMe</small>
+      <small className="flex align-middle items-center font-bold justify-center">
+        &copy; 2024 BuyMe
+      </small>
     </footer>
   );
 }

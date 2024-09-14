@@ -1,18 +1,9 @@
-import { NavLink } from "react-router-dom";
+import Nav from "./Nav";
 
 function Header() {
   return (
-    <header>
-      <nav>
-        <NavLink to="/">
-          <img
-            src="src/assets/logo.png"
-            alt="The logo of the company, it's an uppercase b"
-          />
-        </NavLink>
-        <NavLink to="/contact">Contact</NavLink>
-        <NavLink to="/cart">Cart</NavLink>
-      </nav>
+    <header className="mx-auto">
+      <Nav />
     </header>
   );
 }

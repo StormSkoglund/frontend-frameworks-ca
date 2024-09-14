@@ -5,7 +5,7 @@ import { useState } from "react";
 function Nav() {
   const [cartAmount, setCartAmount] = useState(0);
 
-  /const addToCart = () => {
+  const addToCart = () => {
     console.log("Product added");
     setCartAmount(cartAmount + 1);
   };
@@ -22,7 +22,7 @@ function Nav() {
       <NavLink
         className="text-3xl text-theme1"
         to="/Checkout"
-        onClick={addToCart}                
+        onClick={addToCart}
       >
         <span className="flex row-auto flex-wrap">
           {cartAmount}

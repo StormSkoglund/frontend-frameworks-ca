@@ -19,7 +19,7 @@ function Nav() {
           alt="The logo of the company, it's an uppercase b"
         />
       </NavLink>
-      <NavLink to="/Contact">Contact</NavLink>
+      <NavLink to="/contact">Contact</NavLink>
       <NavLink
         className="text-3xl text-theme1"
         to="/Checkout"

@@ -1,8 +1,104 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const schema = yup
+  .object({
+    fullName: yup
+      .string()
+      .min(3, "Your full name must be at least 3 characters")
+      .required(),
+    email: yup
+      .string()
+      .email("Invalid email format")
+      .required("Email is required"),
+    subject: yup
+      .string()
+      .min(3, "The subject must be at least 3 characters")
+
+      .required("Subject is required"),
+    body: yup
+      .string()
+      .min(3, "The subject must be at least 3 characters")
+
+      .required("Body is required"),
+  })
+  .required();
+
+function Contact() {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  function onSubmit(data, event) {
+    event.preventDefault();
+
+    console.log(data);
+  }
+
+  return (
+    <div className="m-auto w-6/12">
+      <form className="grid grid-rows-1" onSubmit={handleSubmit(onSubmit)}>
+        <label className="text-left" htmlFor="full-name">
+          YOUR FULL NAME
+        </label>
+        <input
+          className=" border-solid border-2 border-theme1 rounded-md w-2/4 p-2 m-2"
+          id="full-name"
+          {...register("fullName")}
+          autoComplete="name"
+        />
+        <p className="text-red-600">{errors.fullName?.message}</p>
+        <label className="text-left" htmlFor="email">
+          E-MAIL
+        </label>
+        <input
+          placeholder="example@domain.com"
+          className=" border-solid border-2 border-theme1 rounded-md w-2/4 p-2 m-2"
+          id="email"
+          {...register("email")}
+          autoComplete="email"
+        />
+        <p className="text-red-600">{errors.email?.message}</p>
+        <label className="text-left" htmlFor="subject">
+          SUBJECT
+        </label>
+        <input
+          className=" border-solid border-2 border-theme1 rounded-md w-2/4 p-2 m-2"
+          id="subject"
+          {...register("subject")}
+          autoComplete="subject"
+        />
+        <p className="text-red-600">{errors.subject?.message}</p>
+        <label className="text-left" htmlFor="body">
+          MESSAGE
+        </label>
+
+        <textarea
+          className=" border-solid border-2 border-theme1 rounded-md w-4/4 p-3 m-2"
+          id="body"
+          {...register("body")}
+          autoComplete="off"
+        />
+        <p className="text-red-600">{errors.body?.message}</p>
+        <button className=" w-auto px-4 py-2 bg-theme2 text-white m-5  rounded-lg hover:bg-green-800 hover:shadow-slate-600 shadow-md text-center font-semibold">
+          <input type="submit" value="" />
+          SUBMIT FORM
+        </button>
+      </form>
+    </div>
+  );
+}
+
+export default Contact;
 
 // This form was build using the examples from the curriculum (module 4, lesson 5). I have then iterated upon this and added different fields, as well as validation.
 
-function Contact() {
+/*function Contact() {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState("");
@@ -90,4 +186,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default Contact;*/

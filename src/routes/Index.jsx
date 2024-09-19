@@ -5,11 +5,13 @@ import Checkout from "../pages/Checkout.jsx";
 import CheckoutSuccess from "../pages/CheckoutSuccess.jsx";
 import App from "../App.jsx";
 import Layout from "../components/Layout.jsx";
+import ErrorPage from "../pages/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -20,7 +22,7 @@ const router = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "productpage/:",
+        path: "productpage/:ID",
         element: <ProductPage />,
       },
       {

@@ -11,7 +11,7 @@ function Nav() {
     setCartAmount(cartAmount + 1);
   };
   return (
-    <nav className="flex flex-row align-middle items-center justify-between mx-auto w-6/12 border-solid border-frame bg-boxbg border-2 rounded-md p-3 mt-2">
+    <nav className="flex flex-row align-middle items-center justify-between mx-auto w-11/12 border-solid border-frame bg-boxbg border-2 rounded-md p-3 mt-2">
       <NavLink to="/">
         <img
           className="w-7"
@@ -22,7 +22,7 @@ function Nav() {
       <NavLink to="/contact">Contact</NavLink>
       <NavLink
         className="text-3xl text-theme1"
-        to="/Checkout"
+        to="/checkout"
         onClick={addToCart}
       >
         <div className="flex flex-col flex-wrap">

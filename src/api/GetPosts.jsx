@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import useApi from "../hooks/useApi"
 
 function GetPosts() {
@@ -23,28 +24,25 @@ function GetPosts() {
     )
   }
   if (data.data) {
+    console.log(data)
     return (
-      <div className="flex flex-row items-start justify-between m-2 p-5 overflow-x-auto flex-wrap bg-theme2 bg-opacity-15 border-solid border-t-4">
+      <div className="flex flex-row items-end justify-between m-2 p-5 overflow-x-auto flex-wrap bg-theme2 bg-opacity-15 border-solid border-t-4">
         {data.data.map((item) => (
-          <div
-            key={item.id}
-            data={item.id}
-            className="cursor-pointer w-60 max-h-fit object-cover rounded-e-2xl m-3 overflow-hidden shadow-2xl hover:animate-bounce-once hover:transition hover:opacity-80 relative"
-          >
-            <div className="relative">
+          <Link key={item.id} to={`/productpage/${item.id}`}>
+            <div className="cursor-pointer rounded-e-2xl m-3 overflow-hidden shadow-2xl hover:shadow-black hover:animate-bounce-once hover:transition hover:opacity-80 relative">
               <img
-                className="w-full"
+                className="block object-cover aspect-square w-full md:w-72"
                 src={item.image.url}
                 alt={item.image.alt}
               ></img>
-              <div className=" flex items-start justify-center bg-slate-800 bg-opacity-20 text-white text-center absolute inset-0 font-bold text-2xl">
+              <div className=" flex items-start justify-center bg-slate-800 bg-opacity-25 text-white text-center absolute inset-0 font-bold text-2xl">
                 {item.title}
                 <button className="font-bold text-sm text-white absolute bottom-3 border-solid rounded-e-2xl border-2 border-white p-2 opacity-70">
                   Show details
                 </button>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     )

@@ -1,11 +1,11 @@
-import Nav from "./Nav";
+import Nav from "./Nav"
 
 function Header() {
   return (
-    <header className="mx-auto">
+    <header className="mx-auto z-50 sticky -top-3">
       <Nav />
     </header>
-  );
+  )
 }
 
-export default Header;
+export default Header

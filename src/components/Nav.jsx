@@ -1,15 +1,15 @@
-import { BsCart2 } from "react-icons/bs";
-import { NavLink } from "react-router-dom";
-import { useState } from "react";
+import { BsCart2 } from "react-icons/bs"
+import { NavLink } from "react-router-dom"
+import { useState } from "react"
 
 function Nav() {
-  const [cartAmount, setCartAmount] = useState(null);
+  const [cartAmount, setCartAmount] = useState(null)
 
   const addToCart = () => {
-    console.log("Product added");
-    cartAmount === 0;
-    setCartAmount(cartAmount + 1);
-  };
+    console.log("Product added")
+    cartAmount === 0
+    setCartAmount(cartAmount + 1)
+  }
   return (
     <nav className="flex flex-row align-middle items-center justify-between mx-auto w-11/12 border-solid border-frame bg-boxbg border-2 rounded-md p-3 mt-2">
       <NavLink to="/">
@@ -31,7 +31,7 @@ function Nav() {
         </div>
       </NavLink>
     </nav>
-  );
+  )
 }
 
-export default Nav;
+export default Nav

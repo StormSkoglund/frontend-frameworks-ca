@@ -1,11 +1,11 @@
-import { createBrowserRouter } from "react-router-dom";
-import Contact from "../pages/Contact.jsx";
-import ProductPage from "../pages/ProductPage.jsx";
-import Checkout from "../pages/Checkout.jsx";
-import CheckoutSuccess from "../pages/CheckoutSuccess.jsx";
-import App from "../App.jsx";
-import Layout from "../components/Layout.jsx";
-import ErrorPage from "../pages/ErrorPage.jsx";
+import { createBrowserRouter } from "react-router-dom"
+import Contact from "../pages/Contact.jsx"
+import ProductPage from "../pages/ProductPage.jsx"
+import Checkout from "../pages/Checkout.jsx"
+import CheckoutSuccess from "../pages/CheckoutSuccess.jsx"
+import Layout from "../components/Layout.jsx"
+import ErrorPage from "../pages/ErrorPage.jsx"
+import Home from "../pages/Home.jsx"
 
 const router = createBrowserRouter([
   {
@@ -15,7 +15,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <App />,
+        element: <Home />,
       },
       {
         path: "contact",
@@ -35,6 +35,6 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+])
 
-export { router };
+export { router }

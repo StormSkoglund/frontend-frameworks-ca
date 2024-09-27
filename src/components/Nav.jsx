@@ -1,15 +1,9 @@
 import { BsCart2 } from "react-icons/bs"
 import { NavLink } from "react-router-dom"
-import { useState } from "react"
+import { useCart } from "../utils/CartContext"
 
 function Nav() {
-  const [cartAmount, setCartAmount] = useState(null)
-
-  const addToCart = () => {
-    console.log("Product added")
-    cartAmount === 0
-    setCartAmount(cartAmount + 1)
-  }
+  const { cart } = useCart()
   return (
     <nav className="flex flex-row align-middle items-center justify-between mx-auto w-11/12 shadow-xl bg-boxbg border-2 rounded-md p-3 mt-2">
       <NavLink to="/">
@@ -20,14 +14,12 @@ function Nav() {
         />
       </NavLink>
       <NavLink to="/contact">Contact</NavLink>
-      <NavLink
-        className="text-3xl text-theme1"
-        to="/checkout"
-        onClick={addToCart}
-      >
-        <div className="flex flex-col flex-wrap">
+      <NavLink className="text-3xl text-theme1" to="/checkout">
+        <div className="relative">
           <BsCart2 />
-          <div className="text-frame text-sm mx-auto">{cartAmount}</div>
+          <div className="absolute bottom-2 left-5 opacity-90 text-center bg-red-500 text-white rounded-full p-1 text-xs">
+            {cart.length}
+          </div>
         </div>
       </NavLink>
     </nav>

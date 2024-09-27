@@ -26,6 +26,9 @@ export default {
           },
         },
       },
+      margin: {
+        margminus: "-1.3em",
+      },
     },
   },
   plugins: [],

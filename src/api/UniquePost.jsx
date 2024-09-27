@@ -1,5 +1,7 @@
 import useApi from "../hooks/useApi"
 import { useParams } from "react-router-dom"
+import CalcPrice from "../utils/CalcPrice"
+import AddToCart from "../utils/AddToCart"
 
 function UniquePost() {
   let { id } = useParams()
@@ -26,20 +28,34 @@ function UniquePost() {
     )
   }
   if (data.data) {
+    const product = {
+      id: data.data.id,
+      title: data.data.title,
+      price: data.data.price,
+      discountedPrice: data.data.discountedPrice,
+    }
+
     return (
       <>
         <div className="grid grid-cols-2 items-start m-16 border-t-4 border-theme2 border-opacity-40">
           <h2 className="text-center m-10 text-3xl font-extrabold text-slate-700">
             {data.data.title}
           </h2>
-          <p className="text-left font-medium m-10 rounded-s-2xl bg-theme1 bg-opacity-20 p-12">
+          <p className="text-left font-medium m-10 rounded-s-2xl bg-theme1 bg-opacity-20 p-4">
             {data.data.description}
           </p>
           <img
             src={data.data.image.url}
             alt={data.data.image.alt}
-            className="block object-cover aspect-square w-full rounded-e-2xl shadow-2xl"
+            className="block object-cover aspect-square w-60 m-auto rounded-e-2xl shadow-2xl"
           />
+          <AddToCart product={product} />
+          <div className="block m-auto">
+            <CalcPrice
+              price={data.data.price}
+              discountedPrice={data.data.discountedPrice}
+            />
+          </div>
         </div>
       </>
     )

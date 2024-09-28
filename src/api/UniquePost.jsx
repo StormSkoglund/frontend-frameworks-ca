@@ -33,6 +33,26 @@ function UniquePost() {
       title: data.data.title,
       price: data.data.price,
       discountedPrice: data.data.discountedPrice,
+      image: {
+        url: data.data.image.url,
+        alt: data.data.image.alt,
+      },
+    }
+
+    let reviewContent
+    if (data.data.reviews && data.data.reviews.length > 0) {
+      reviewContent = data.data.reviews.map((review) => (
+        <div
+          key={review.id}
+          className="p-4 text-sm bg-gray-100 rounded-md shadow-md mb-4"
+        >
+          <p className="font-bold">{review.username}</p>
+          <p className="text-md">Rating: {review.rating}</p>
+          <p>{review.description}</p>
+        </div>
+      ))
+    } else {
+      reviewContent = <p>There are no reviews for this specific product.</p>
     }
 
     return (
@@ -55,6 +75,7 @@ function UniquePost() {
               price={data.data.price}
               discountedPrice={data.data.discountedPrice}
             />
+            <div className="">{reviewContent}</div>
           </div>
         </div>
       </>

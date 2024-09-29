@@ -1,4 +1,5 @@
-import { useCart } from "../utils/CartContext"
+import { useCart } from "../components/cart/CartContext"
+import CalcDiscount from "../utils/CalcDiscount"
 
 function Checkout() {
   const { cart } = useCart()
@@ -12,8 +13,15 @@ function Checkout() {
             {cart.map((item, index) => (
               <li key={index} className="border-b p-2">
                 <p className="text-md font-bold">{item.title}</p>
-                <p>Regular Price: {item.price},-</p>
-                <p>With Discounts: {item.discountedPrice},-</p>
+                <div className="relative w-2/6 m-auto">
+                  <p>Regular Price: {item.price},-</p>
+                  <p>With Discounts: {item.discountedPrice},-</p>
+                  <p>You Save: </p>
+                  <CalcDiscount
+                    price={item.price}
+                    discountedPrice={item.discountedPrice}
+                  />
+                </div>
                 <img
                   className="block object-cover aspect-square  mt-3 mb-3 w-40 rounded-e-2xl shadow-2xl"
                   src={item.image.url}

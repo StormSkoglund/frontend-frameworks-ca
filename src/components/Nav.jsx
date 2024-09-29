@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { BsCart2 } from "react-icons/bs"
 import { NavLink } from "react-router-dom"
-import { useCart } from "../utils/CartContext"
+import { useCart } from "./cart/CartContext"
 import { FaBars, FaTimes } from "react-icons/fa"
 
 function Nav() {

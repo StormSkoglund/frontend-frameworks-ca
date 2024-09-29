@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import useApi from "../hooks/useApi"
 import CalcPrice from "../utils/CalcPrice"
+import CalcDiscount from "../utils/CalcDiscount"
 
 function GetPosts() {
   const { data, isLoading, isError } = useApi(
@@ -17,11 +18,9 @@ function GetPosts() {
   }
   if (isError) {
     return (
-      <>
-        <div className="animate-pulse text-red-600 bg-slate-600 rounded-md shadow-sm w-20">
-          There was an error loading our products!
-        </div>
-      </>
+      <div className="animate-pulse text-red-600 bg-slate-600 rounded-md shadow-sm w-20">
+        There was an error loading our products!
+      </div>
     )
   }
   if (data.data) {
@@ -35,12 +34,16 @@ function GetPosts() {
                 className="block object-cover aspect-square w-full md:w-72"
                 src={item.image.url}
                 alt={item.image.alt}
-              ></img>
+              />
               <div className="flex items-start justify-center bg-slate-800 bg-opacity-25 text-white text-center absolute inset-0 font-bold text-2xl">
                 {item.title}
                 <button className="font-bold text-sm text-white absolute bottom-3 border-solid rounded-e-2xl border-2 border-white p-2 opacity-85 hover:border-4 duration-200">
                   Show details
                 </button>
+                <CalcDiscount
+                  price={item.price}
+                  discountedPrice={item.discountedPrice}
+                />
               </div>
             </div>
             <span className="absolute flex flex-row justify-between items-end mt-margminus mb-2">
@@ -57,4 +60,5 @@ function GetPosts() {
     return <p>No data available</p>
   }
 }
+
 export default GetPosts

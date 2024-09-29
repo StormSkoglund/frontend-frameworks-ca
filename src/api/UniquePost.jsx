@@ -1,7 +1,8 @@
 import useApi from "../hooks/useApi"
 import { useParams } from "react-router-dom"
 import CalcPrice from "../utils/CalcPrice"
-import AddToCart from "../utils/AddToCart"
+import AddToCart from "../components/cart/AddToCart"
+import CalcDiscount from "../utils/CalcDiscount"
 
 function UniquePost() {
   let { id } = useParams()
@@ -69,13 +70,22 @@ function UniquePost() {
             alt={data.data.image.alt}
             className="block object-cover aspect-square w-60 m-auto rounded-e-2xl shadow-2xl"
           />
-          <AddToCart product={product} />
-          <div className="block m-auto">
+          <div className="relative w-8/12 m-auto">
             <CalcPrice
               price={data.data.price}
               discountedPrice={data.data.discountedPrice}
             />
-            <div className="">{reviewContent}</div>
+            <p className="absolute right-20 top-12 rounded-lg">You Save:</p>
+            <CalcDiscount
+              price={data.data.price}
+              discountedPrice={data.data.discountedPrice}
+            />
+          </div>
+          <AddToCart product={product} />
+          <div className="block m-auto">
+            <div className="border-solid border-x-2 p-2 text-pretty">
+              {reviewContent}
+            </div>
           </div>
         </div>
       </>

@@ -1,4 +1,4 @@
-import GetPosts from "../api/GetPosts"
+import GetProducts from "../api/GetProducts"
 
 function Home() {
   return (
@@ -7,7 +7,7 @@ function Home() {
       <h2 className="text-center mn-3 font-small">
         Unique Finds for Him and Her, Especially Her!!
       </h2>
-      <GetPosts />
+      <GetProducts />
     </>
   )
 }

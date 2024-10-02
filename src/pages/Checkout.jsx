@@ -13,10 +13,12 @@ function Checkout() {
             {cart.map((item, index) => (
               <li key={index} className="border-b p-2">
                 <p className="text-md font-bold">{item.title}</p>
-                <div className="relative w-2/6 m-auto">
-                  <p>Regular Price: {item.price},-</p>
-                  <p>With Discounts: {item.discountedPrice},-</p>
-                  <p>You Save: </p>
+                <div className="relative w-full lg:w-2/6 m-auto">
+                  <p>Regular Price: NOK {item.price},-</p>
+                  <p className="font-semibold">
+                    With Discounts: NOK {item.discountedPrice},-
+                  </p>
+
                   <CalcDiscount
                     price={item.price}
                     discountedPrice={item.discountedPrice}

@@ -1,11 +1,11 @@
 function Footer() {
   return (
-    <footer>
-      <small className="flex align-middle items-center font-bold justify-center h-10 mb-auto sticky-buttom">
-        &copy; 2024 BuyMe
+    <footer className="flex items-center font-bold justify-center mb-auto sticky bg-theme1 p-8">
+      <small className="text-white">
+        &copy;2024 Alex Storm Skoglund. All rights reserved
       </small>
     </footer>
-  );
+  )
 }
 
-export default Footer;
+export default Footer

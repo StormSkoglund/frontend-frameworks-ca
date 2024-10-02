@@ -3,8 +3,9 @@ import { useParams } from "react-router-dom"
 import CalcPrice from "../utils/CalcPrice"
 import AddToCart from "../components/cart/AddToCart"
 import CalcDiscount from "../utils/CalcDiscount"
+import SkeletonProduct from "../components/loaders/SkeletonProduct"
 
-function UniquePost() {
+function UniqueProduct() {
   let { id } = useParams()
   console.log(id)
 
@@ -12,12 +13,7 @@ function UniquePost() {
     `https://v2.api.noroff.dev/online-shop/${id}`
   )
   if (isLoading) {
-    return (
-      <div className="flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-theme1"></div>
-        <p className="animate-pulse">loading...</p>
-      </div>
-    )
+    return <SkeletonProduct />
   }
   if (isError) {
     return (
@@ -58,7 +54,7 @@ function UniquePost() {
 
     return (
       <>
-        <div className="grid grid-cols-2 items-start m-16 border-t-4 border-theme2 border-opacity-40">
+        <div className="grid grid-cols-2 items-start m-16 border-t-4 border-theme2 border-opacity-40 bg-theme1 bg-opacity-15">
           <h2 className="text-center m-10 text-3xl font-extrabold text-slate-700">
             {data.data.title}
           </h2>
@@ -71,11 +67,11 @@ function UniquePost() {
             className="block object-cover aspect-square w-60 m-auto rounded-e-2xl shadow-2xl"
           />
           <div className="relative w-8/12 m-auto">
+            Price:
             <CalcPrice
               price={data.data.price}
               discountedPrice={data.data.discountedPrice}
             />
-            <p className="absolute right-20 top-12 rounded-lg">You Save:</p>
             <CalcDiscount
               price={data.data.price}
               discountedPrice={data.data.discountedPrice}
@@ -93,4 +89,4 @@ function UniquePost() {
   }
 }
 
-export default UniquePost
+export default UniqueProduct

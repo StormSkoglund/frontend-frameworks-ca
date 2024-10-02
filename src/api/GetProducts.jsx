@@ -2,19 +2,16 @@ import { Link } from "react-router-dom"
 import useApi from "../hooks/useApi"
 import CalcPrice from "../utils/CalcPrice"
 import CalcDiscount from "../utils/CalcDiscount"
+import SkeletonHome from "../components/loaders/SkeletonHome"
+import LookAheadSearchBar from "../components/search/LookAheadSearchBar"
 
-function GetPosts() {
+function GetProducts() {
   const { data, isLoading, isError } = useApi(
     "https://v2.api.noroff.dev/online-shop"
   )
 
   if (isLoading) {
-    return (
-      <div className="flex items-center justify-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-theme1"></div>
-        <p className="animate-pulse">loading...</p>
-      </div>
-    )
+    return <SkeletonHome />
   }
   if (isError) {
     return (
@@ -27,6 +24,9 @@ function GetPosts() {
     console.log(data)
     return (
       <div className="flex flex-row items-end justify-between m-2 p-5 overflow-x-auto flex-wrap bg-theme2 bg-opacity-15 border-solid border-t-4">
+        <div className="w-full">
+          <LookAheadSearchBar products={data.data} />
+        </div>
         {data.data.map((item) => (
           <Link key={item.id} to={`/productpage/${item.id}`}>
             <div className="cursor-pointer rounded-e-2xl m-3 overflow-hidden shadow-2xl hover:shadow-black hover:animate-bounce-once hover:transition hover:opacity-80 relative">
@@ -61,4 +61,4 @@ function GetPosts() {
   }
 }
 
-export default GetPosts
+export default GetProducts

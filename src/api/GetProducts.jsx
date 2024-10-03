@@ -37,7 +37,7 @@ function GetProducts() {
               />
               <div className="flex items-start justify-center bg-slate-800 bg-opacity-25 text-white text-center absolute inset-0 font-bold text-2xl">
                 {item.title}
-                <button className="font-bold text-sm text-white absolute bottom-3 border-solid rounded-e-2xl border-2 border-white p-2 opacity-85 hover:border-4 duration-200">
+                <button className="font-bold text-sm text-white absolute bottom-3 border-solid rounded-e-2xl border-2 border-white p-2 opacity-90 hover:border-4 duration-200">
                   Show details
                 </button>
                 <CalcDiscount

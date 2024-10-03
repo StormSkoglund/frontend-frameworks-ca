@@ -31,6 +31,7 @@ function Nav() {
         </button>
       </div>
       <div
+        aria-label="hamburger-menu"
         className={`flex-col ${
           isOpen ? "flex-col-reverse" : ""
         } md:flex md:flex-row justify-end gap-2 ${

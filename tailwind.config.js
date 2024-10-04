@@ -27,7 +27,7 @@ export default {
         },
       },
       margin: {
-        margminus: "-1.3em",
+        margminus: "-3.5em",
       },
     },
   },

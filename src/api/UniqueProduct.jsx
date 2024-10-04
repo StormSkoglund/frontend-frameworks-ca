@@ -17,11 +17,9 @@ function UniqueProduct() {
   }
   if (isError) {
     return (
-      <>
-        <div className="animate-pulse text-red-600 bg-slate-600 rounded-md shadow-sm w-20">
-          There was an error loading the product, please try again later!
-        </div>
-      </>
+      <div className="animate-pulse text-red-600 bg-slate-600 rounded-md shadow-sm w-20">
+        There was an error loading the product, please try again later!
+      </div>
     )
   }
   if (data.data) {
@@ -53,38 +51,36 @@ function UniqueProduct() {
     }
 
     return (
-      <>
-        <div className="grid grid-cols-2 items-start m-16 border-t-4 border-theme2 border-opacity-40 bg-theme1 bg-opacity-15">
-          <h2 className="text-center m-10 text-3xl font-extrabold text-slate-700">
-            {data.data.title}
-          </h2>
-          <p className="text-left font-medium m-10 rounded-s-2xl bg-theme1 bg-opacity-20 p-4">
-            {data.data.description}
-          </p>
-          <img
-            src={data.data.image.url}
-            alt={data.data.image.alt}
-            className="block object-cover aspect-square w-60 m-auto rounded-e-2xl shadow-2xl"
+      <div className="grid grid-cols-2 items-start m-16 border-t-4 border-theme2 border-opacity-40 bg-theme1 bg-opacity-15">
+        <h2 className="text-center m-10 text-3xl font-extrabold text-slate-700">
+          {data.data.title}
+        </h2>
+        <p className="text-left font-medium m-10 rounded-s-2xl bg-theme1 bg-opacity-20 p-4">
+          {data.data.description}
+        </p>
+        <img
+          src={data.data.image.url}
+          alt={data.data.image.alt}
+          className="block object-cover aspect-square w-60 m-auto rounded-e-2xl shadow-2xl"
+        />
+        <div className="relative w-8/12 m-auto">
+          Price:
+          <CalcPrice
+            price={data.data.price}
+            discountedPrice={data.data.discountedPrice}
           />
-          <div className="relative w-8/12 m-auto">
-            Price:
-            <CalcPrice
-              price={data.data.price}
-              discountedPrice={data.data.discountedPrice}
-            />
-            <CalcDiscount
-              price={data.data.price}
-              discountedPrice={data.data.discountedPrice}
-            />
-          </div>
-          <AddToCart product={product} />
-          <div className="block m-auto">
-            <div className="border-solid border-x-2 p-2 text-pretty">
-              {reviewContent}
-            </div>
+          <CalcDiscount
+            price={data.data.price}
+            discountedPrice={data.data.discountedPrice}
+          />
+        </div>
+        <AddToCart product={product} />
+        <div className="block m-auto">
+          <div className="border-solid border-x-2 p-2 text-pretty">
+            {reviewContent}
           </div>
         </div>
-      </>
+      </div>
     )
   }
 }

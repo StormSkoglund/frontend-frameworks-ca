@@ -2,6 +2,8 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
+import { NavLink } from "react-router-dom"
+import { TiArrowBack } from "react-icons/ti"
 
 const schema = yup
   .object({
@@ -46,32 +48,36 @@ function Contact() {
   let contactContent
   if (submitForm) {
     contactContent = (
-      <>
-        <div className="bg-theme2 opacity-75 p-3 lg:p-10 m-3 font-bold text-blue-50 rounded-e-3xl shadow-2xl shadow-slate-800 w-11/12 sm:w-3/4  block mx-auto leading-5">
-          <h3>Ticket Submitted</h3>
-          <p>
-            Thank you for reaching out to us! We value your feedback and are
-            here to assist you with any questions or concerns you may have. To
-            submit a ticket, please fill out the form with the necessary details
-            about your issue or inquiry.
-          </p>
-          <p>
-            Evaluation Time Once your ticket is submitted, our support team will
-            review it promptly. We strive to respond to all tickets within 24
-            hours.
-          </p>
-          <p>
-            However, the evaluation time may vary depending on the complexity of
-            your request. Rest assured, we are committed to providing you with a
-            thorough and timely response.
-          </p>
-        </div>
-      </>
+      <div className="bg-theme1 opacity-75 p-3 lg:p-10 m-3  text-black rounded-e-3xl shadow-2xl shadow-slate-800 w-11/12 sm:w-3/4  block mx-auto leading-5">
+        <h3 className="mb-3 font-extrabold ">Ticket Submitted</h3>
+        <p className="mb-8">
+          Thank you for reaching out to us! We value your feedback and are here
+          to assist you with any questions or concerns you may have.
+        </p>
+
+        <h4 className="mb-3 font-bold">Evaluation Time</h4>
+
+        <p className="mb-8">
+          Once your ticket is submitted, our support team will review it
+          promptly. We strive to respond to all tickets within 24 hours.
+        </p>
+        <p className="mb-5">
+          However, the evaluation time may vary depending on the complexity of
+          your request. Rest assured, we are committed to providing you with a
+          thorough and timely response.
+        </p>
+        <p className="text-center mb-2">Go Back</p>
+        <NavLink to="/" className="text-center">
+          <div className="text-black font-extrabold mx-auto flex flex-row justify-center align-middle animate-pulse">
+            <TiArrowBack />
+          </div>
+        </NavLink>
+      </div>
     )
   } else {
     contactContent = (
       <>
-        <article className="bg-theme2 opacity-75 p-3 lg:p-10 m-3 font-bold text-blue-50 rounded-e-3xl shadow-2xl shadow-slate-800 w-11/12 sm:w-3/4  block mx-auto leading-5 ">
+        <article className="bg-theme2 opacity-75 p-3 lg:p-10 m-3 font-bold text-black rounded-e-3xl shadow-2xl shadow-slate-800 w-11/12 sm:w-3/4  block mx-auto leading-5 ">
           <h1 className="pb-4 font-bold"> CONTACT FORM</h1>
           <h2 className="pb-4 font-medium">Get in Touch with Us!</h2>
           <p className="pb-2 font-medium">
@@ -161,11 +167,7 @@ function Contact() {
     )
   }
 
-  return (
-    <>
-      <div className="m-auto w-4/5 sm:w-4/6 xl:w-2/4">{contactContent}</div>
-    </>
-  )
+  return <div className="m-auto w-4/5 sm:w-4/6 xl:w-2/4">{contactContent}</div>
 }
 
 export default Contact

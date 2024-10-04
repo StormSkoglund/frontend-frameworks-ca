@@ -15,7 +15,7 @@ function GetProducts() {
   }
   if (isError) {
     return (
-      <div className="animate-pulse text-red-600 bg-slate-600 rounded-md shadow-sm w-20">
+      <div className="animate-pulse text-red-600 bg-white p-20 rounded-md shadow-sm w-20">
         There was an error loading our products!
       </div>
     )
@@ -29,9 +29,9 @@ function GetProducts() {
         </div>
         {data.data.map((item) => (
           <Link key={item.id} to={`/productpage/${item.id}`}>
-            <div className="cursor-pointer rounded-e-2xl m-3 overflow-hidden shadow-2xl hover:shadow-black hover:animate-bounce-once hover:transition hover:opacity-80 relative">
+            <div className="cursor-pointer rounded-e-2xl m-5 overflow-hidden shadow-2xl hover:shadow-black hover:animate-bounce-once hover:transition hover:opacity-80 relative mb-12">
               <img
-                className="block object-cover aspect-square w-full md:w-72"
+                className="block object-cover aspect-square w-full md:w-60"
                 src={item.image.url}
                 alt={item.image.alt}
               />
@@ -46,7 +46,7 @@ function GetProducts() {
                 />
               </div>
             </div>
-            <span className="absolute flex flex-row justify-between items-end mt-margminus mb-2">
+            <span className="absolute flex flex-row justify-between items-end mt-margminus">
               <CalcPrice
                 price={item.price}
                 discountedPrice={item.discountedPrice}

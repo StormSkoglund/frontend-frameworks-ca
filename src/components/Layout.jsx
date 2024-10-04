@@ -5,13 +5,15 @@ import { CartProvider } from "../components/cart/CartContext"
 
 function Layout() {
   return (
-    <div>
-      <CartProvider>
-        <Header />
-        <Outlet />
+    <CartProvider>
+      <Header />
+      <div className="h-screen flex flex-col">
+        <main className="flex-grow">
+          <Outlet />
+        </main>
         <Footer />
-      </CartProvider>
-    </div>
+      </div>
+    </CartProvider>
   )
 }
 

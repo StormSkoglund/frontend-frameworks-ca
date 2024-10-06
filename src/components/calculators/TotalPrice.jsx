@@ -1,0 +1,1 @@
+function TotalPrice({ price, discountedPrice }) {}

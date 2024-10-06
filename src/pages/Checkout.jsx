@@ -1,5 +1,7 @@
 import { useCart } from "../components/cart/CartContext"
-import CalcDiscount from "../utils/CalcDiscount"
+import CalcDiscount from "../components/calculators/CalcDiscount.jsx"
+import { NavLink } from "react-router-dom"
+import { TiArrowBack } from "react-icons/ti"
 
 function Checkout() {
   const { cart } = useCart()
@@ -33,7 +35,18 @@ function Checkout() {
             ))}
           </ul>
         ) : (
-          <p>Your cart is empty.</p>
+          <>
+            <p className="text-center text-4xl font-semibold mt-10">
+              Your cart is empty.
+            </p>
+
+            <NavLink to="/" className="text-center">
+              <div className="text-gray-900 mx-auto w-20 flex rounded-lg flex-row justify-center align-middle bg-theme2 shadow-sm hover:shadow-lg hover:bg-theme1 p-5 mt-2 mb-2">
+                <TiArrowBack />
+              </div>
+              <p className="text-center text-lg italic mt-1">Go Back</p>
+            </NavLink>
+          </>
         )}
       </div>
     </>

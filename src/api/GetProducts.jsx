@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import useApi from "../hooks/useApi"
-import CalcPrice from "../utils/CalcPrice"
-import CalcDiscount from "../utils/CalcDiscount"
+import CalcPrice from "../components/calculators/CalcPrice"
+import CalcDiscount from "../components/calculators/CalcDiscount"
 import SkeletonHome from "../components/loaders/SkeletonHome"
 import LookAheadSearchBar from "../components/search/LookAheadSearchBar"
 

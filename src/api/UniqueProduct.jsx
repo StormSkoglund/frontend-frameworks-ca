@@ -1,8 +1,8 @@
 import useApi from "../hooks/useApi"
 import { useParams } from "react-router-dom"
-import CalcPrice from "../utils/CalcPrice"
+import CalcPrice from "../components/calculators/CalcPrice"
 import AddToCart from "../components/cart/AddToCart"
-import CalcDiscount from "../utils/CalcDiscount"
+import CalcDiscount from "../components/calculators/CalcDiscount"
 import SkeletonProduct from "../components/loaders/SkeletonProduct"
 
 function UniqueProduct() {
@@ -63,20 +63,25 @@ function UniqueProduct() {
           alt={data.data.image.alt}
           className="block object-cover aspect-square w-60 m-auto rounded-e-2xl shadow-2xl"
         />
-        <div className="relative w-8/12 m-auto">
+        <div className="relative w-8/12 block mx-auto">
           Price:
           <CalcPrice
             price={data.data.price}
             discountedPrice={data.data.discountedPrice}
           />
-          <CalcDiscount
-            price={data.data.price}
-            discountedPrice={data.data.discountedPrice}
-          />
+          <div className="relative">
+            <CalcDiscount
+              price={data.data.price}
+              discountedPrice={data.data.discountedPrice}
+            />
+          </div>
         </div>
         <AddToCart product={product} />
         <div className="block m-auto">
           <div className="border-solid border-x-2 p-2 text-pretty">
+            <p className="text-lg text-slate-900 font-bold mb-2">
+              Customer Reviews
+            </p>
             {reviewContent}
           </div>
         </div>

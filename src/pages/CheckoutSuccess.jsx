@@ -16,17 +16,17 @@ function CheckoutSuccess() {
           Street, 0450 Oslo, Norway. Delivery times vary based on your location
           within Norway:
         </p>
-        <p className="mt-4 mb-4 font-semibold">Oslo and surrounding areas</p>:
+        <p className="mt-4 mb-4 font-semibold">Oslo and surrounding areas:</p>
         1-2 business days
         <p className="mt-4 mb-4 font-semibold">
-          Bergen, Stavanger, and Trondheim
+          Bergen, Stavanger, and Trondheim:
         </p>
-        <p> : 2-3 business days</p>
+        <p> 2-3 business days</p>
         <p className="mt-4 mb-4 font-semibold">
-          Northern Norway (excluding Svalbard and Jan Mayen)
-        </p>{" "}
-        <p className="mt-4 mb-4">: 3-5 business days</p>
-        <p className="mt-4 mb-4 font-semibold">Other regions</p>: 2-4 business
+          Northern Norway (excluding Svalbard and Jan Mayen):
+        </p>
+        <p className="mt-4 mb-4"> 3-5 business days</p>
+        <p className="mt-4 mb-4 font-semibold">Other regions:</p> 2-4 business
         days
         <p className="mt-4 mb-4">
           You will receive a notification with tracking details once your parcel

@@ -2,7 +2,7 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
-import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 import { TiArrowBack } from "react-icons/ti"
 
 const schema = yup
@@ -67,11 +67,11 @@ function Contact() {
           thorough and timely response.
         </p>
         <p className="text-center mb-2">Go Back</p>
-        <NavLink to="/" className="text-center">
-          <div className="text-black font-extrabold mx-auto flex flex-row justify-center align-middle animate-pulse">
+        <Link to="/" className="text-center">
+          <div className="text-black font-extrabold mx-auto flex flex-row justify-center align-middle animate-pulse bg-theme2 p-5">
             <TiArrowBack />
           </div>
-        </NavLink>
+        </Link>
       </div>
     )
   } else {
@@ -81,8 +81,8 @@ function Contact() {
           <h1 className="pb-4 font-bold"> CONTACT FORM</h1>
           <h2 className="pb-4 font-medium">Get in Touch with Us!</h2>
           <p className="pb-2 font-medium">
-            At BuyMe, we’re here to help you with any questions or concerns you
-            might have. Whether you need assistance with your order, have a
+            At BuyThat, we’re here to help you with any questions or concerns
+            you might have. Whether you need assistance with your order, have a
             product inquiry, or just want to share your feedback, we’re all
             ears!
           </p>
@@ -111,8 +111,8 @@ function Contact() {
           </ul>
           <p className="pb-2 font-medium">
             Your Information: Please provide your Name, Email, Subject, and
-            Message. Thank you for choosing BuyMe! We look forward to assisting
-            you.
+            Message. Thank you for choosing BuyThat! We look forward to
+            assisting you.
           </p>
         </article>
         <form className="grid grid-rows-1" onSubmit={handleSubmit(onSubmit)}>

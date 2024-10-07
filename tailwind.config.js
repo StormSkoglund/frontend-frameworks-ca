@@ -12,6 +12,7 @@ export default {
       },
       animation: {
         "bounce-once": "bounce 650ms ease-in-out 1",
+        "ping-slow": "ping 3500ms cubic-bezier(0, 0, 0.2, 1) infinite",
       },
       keyframes: {
         bounce: {
@@ -24,6 +25,9 @@ export default {
           "80%": {
             transform: "translateY(-2%) translateX(-2px) translateZ(1px)",
           },
+        },
+        ping: {
+          "95%, 100%": { transform: "scale(1.3)", opacity: "0" },
         },
       },
       margin: {

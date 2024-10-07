@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 // This is a slightly modified version of the code presented in Connor obriens video "7-React-typeahead-search-example" (Accessed: 01 October 2024).
 
-function LookAheadSearchBar({ products = [] }) {
+function SearchBar({ products = [] }) {
   const [searchTerm, setSearchTerm] = useState("")
 
   console.log("searchTerm", searchTerm)
@@ -16,15 +16,12 @@ function LookAheadSearchBar({ products = [] }) {
 
   return (
     <div className="w-full flex items-center flex-col justify-center m-5 relative">
-      <div className="w-full">
-        <label
-          htmlFor="search"
-          className="text-lg font-bold float text-gray-800"
-        >
-          Looking for something ?
-        </label>
-      </div>
+      <label htmlFor="search" className="w-2/4 text-md font-bold text-gray-800">
+        Looking for something ?
+      </label>
+
       <input
+        autoComplete="off"
         className="border-solid border-2 border-theme1 rounded-md p-2 w-6/12 relative"
         value={searchTerm}
         id="search"
@@ -49,4 +46,4 @@ function LookAheadSearchBar({ products = [] }) {
   )
 }
 
-export default LookAheadSearchBar
+export default SearchBar

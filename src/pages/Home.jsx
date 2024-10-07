@@ -10,10 +10,10 @@ function Home() {
           className="block m-auto w-full h-auto"
         />
         <h1 className="absolute inset-0 flex items-center z-50 justify-center text-center font-bold text-white text-xl md:text-4xl animate-pulse">
-          Welcome To BuyMe.
+          Welcome To BuyThat.
         </h1>
-        <h2 className="text-center mt-3 font-semibold bg-theme-1 bg-opacity-55 text-xl animate-typewriter animate-pulse text-theme1">
-          Unique Finds for Him and Her, Especially Her!!
+        <h2 className="text-center mt-3 font-semibold bg-theme-1 bg-opacity-55 text-xl text-theme1">
+          Unique Finds for Him and Especially Her!!
         </h2>
       </div>
       <GetProducts />

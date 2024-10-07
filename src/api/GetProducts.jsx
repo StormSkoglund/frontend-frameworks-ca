@@ -3,7 +3,7 @@ import useApi from "../hooks/useApi"
 import CalcPrice from "../components/calculators/CalcPrice"
 import CalcDiscount from "../components/calculators/CalcDiscount"
 import SkeletonHome from "../components/loaders/SkeletonHome"
-import LookAheadSearchBar from "../components/search/LookAheadSearchBar"
+import SearchBar from "../components/search/SearchBar"
 
 function GetProducts() {
   const { data, isLoading, isError } = useApi(
@@ -24,8 +24,11 @@ function GetProducts() {
     console.log(data)
     return (
       <div className="flex flex-row items-end justify-between m-2 p-5 overflow-x-auto flex-wrap bg-theme2 bg-opacity-15 border-solid border-t-4">
+        <div className="text-center font-bold text-2xl mx-auto text-orange-700 animate-ping-slow">
+          AUTUMN SALE!
+        </div>
         <div className="w-full">
-          <LookAheadSearchBar products={data.data} />
+          <SearchBar products={data.data} />
         </div>
         {data.data.map((item) => (
           <Link key={item.id} to={`/productpage/${item.id}`}>

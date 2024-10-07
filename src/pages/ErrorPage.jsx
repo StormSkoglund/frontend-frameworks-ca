@@ -1,5 +1,5 @@
 import { TiArrowBack } from "react-icons/ti"
-import { NavLink, useRouteError } from "react-router-dom"
+import { Link, useRouteError } from "react-router-dom"
 
 export default function ErrorPage() {
   const error = useRouteError()
@@ -10,12 +10,12 @@ export default function ErrorPage() {
         Error: {""}
         {error.statusText || error.message}
       </h1>
-      <NavLink to="/" className="text-center">
+      <Link to="/" className="text-center">
         <div className="text-gray-900 mx-auto w-20 flex rounded-lg flex-row justify-center align-middle bg-theme2 shadow-sm hover:shadow-lg hover:bg-theme1 p-5 mt-2 mb-2">
           <TiArrowBack />
         </div>
         <p className="text-center text-lg italic mt-1">Go Back</p>
-      </NavLink>
+      </Link>
     </div>
   )
 }

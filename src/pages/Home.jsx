@@ -5,7 +5,7 @@ function Home() {
     <>
       <div className="relative w-10/12 md:w-8/12 h-auto m-auto mt-3">
         <img
-          src="src/assets/shop2.svg"
+          src="/assets/shop2.svg"
           alt="A drawing of happy people. They are carrying shopping bags"
           className="block m-auto w-full h-auto"
         />

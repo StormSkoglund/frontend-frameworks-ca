@@ -17,7 +17,7 @@ function Nav() {
       <NavLink to="/">
         <img
           className="w-full"
-          src="src/assets/logo-full.svg"
+          src="/assets/logo-full.svg"
           alt="The logo of the company, it's an uppercase b"
         />
       </NavLink>

@@ -23,7 +23,7 @@ function GetProducts() {
   if (data.data) {
     console.log(data)
     return (
-      <div className="flex flex-row items-end justify-between m-2 p-5 overflow-x-auto flex-wrap bg-theme2 bg-opacity-15 border-solid border-t-4">
+      <div className="flex flex-row items-end justify-evenly m-2 p-5 overflow-x-auto flex-wrap bg-theme2 bg-opacity-15 border-solid border-t-4">
         <div className="text-center font-bold text-2xl mx-auto text-orange-700 animate-ping-slow">
           AUTUMN SALE!
         </div>

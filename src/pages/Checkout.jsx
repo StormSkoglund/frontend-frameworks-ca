@@ -1,11 +1,11 @@
 import { useCart } from "../components/cart/CartContext"
 import CalcDiscount from "../components/calculators/CalcDiscount.jsx"
+import { FaRegTrashCan } from "react-icons/fa6"
 import { Link, useNavigate } from "react-router-dom"
-import { TiArrowBack } from "react-icons/ti"
 import { useState, useEffect } from "react"
 
 function Checkout() {
-  const { cart, clearCart } = useCart()
+  const { cart, removeItem, clearCart, addToCart } = useCart()
   const [total, setTotal] = useState(0)
   const navigate = useNavigate()
 
@@ -47,15 +47,33 @@ function Checkout() {
                       price={item.price}
                       discountedPrice={item.discountedPrice}
                     />
+                    <button
+                      className="w-4 m-2 text-lg font-bold border-solid border-2 rounded-md shadow-md hover:shadow-2xl"
+                      onClick={() => removeItem(item.id)}
+                    >
+                      -
+                    </button>
+                    <button
+                      className="w-4 m-2 text-lg font-bold border-solid border-2 rounded-md shadow-md hover:shadow-2xl"
+                      onClick={() => addToCart(item)}
+                    >
+                      +
+                    </button>
                   </div>
                   <img
                     className="block object-cover aspect-square mt-3 mb-3 w-40 rounded-e-2xl shadow-2xl"
                     src={item.image.url}
-                    alt={item.title}
+                    alt={item.image.alt}
                   />
                 </li>
               ))}
             </ul>
+            <div className="flex flex-col items-center justify-between mx-auto border-solid border-2 p-5 m-4 w-fit">
+              <p className="text-md font-bold text-red-500">Empty Cart:</p>
+              <button onClick={() => clearCart()}>
+                <FaRegTrashCan />
+              </button>
+            </div>
             <div className="text-center m-5 border-t-4 w-2/4 mx-auto border-b-4">
               <p className="text-lg font-bold">
                 Total: NOK {total.toFixed(2)},-
@@ -71,25 +89,15 @@ function Checkout() {
               <div className="mx-auto w-50 text-lg "> Or </div>
               <Link to="/" className="text-center">
                 <div className="text-gray-900 mx-auto w-50 flex rounded-lg flex-row justify-center border-2 align-middle shadow-sm hover:shadow-lg p-5 mt-2 mb-2">
-                  <p className="text-center text-lg mt-1 font-semibold">
-                    Return to Home And Continue Shopping
+                  <p className="text-center">
+                    Return Back to Home & Keep Shopping
                   </p>
                 </div>
               </Link>
             </div>
           </>
         ) : (
-          <>
-            <p className="text-center text-4xl font-semibold mt-10">
-              Your cart is empty.
-            </p>
-            <Link to="/" className="text-center">
-              <div className="text-gray-900 mx-auto w-20 flex rounded-lg flex-row justify-center align-middle bg-theme2 shadow-sm hover:shadow-lg hover:bg-theme1 p-5 mt-2 mb-2">
-                <TiArrowBack />
-              </div>
-              <p className="text-center text-lg italic mt-1">Go Back</p>
-            </Link>
-          </>
+          <p>YOUR CART IS EMPTY.</p>
         )}
       </div>
     </>

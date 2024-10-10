@@ -6,7 +6,7 @@ import { useState, useEffect } from "react"
 import { Helmet } from "react-helmet-async"
 
 function Checkout() {
-  const { cart, removeItem, clearCart, addToCart } = useCart()
+  const { cart, removeItem, clearCart, addItem } = useCart()
   const [total, setTotal] = useState(0)
   const navigate = useNavigate()
 
@@ -24,6 +24,21 @@ function Checkout() {
     setTotal(newTotal)
   }, [cart])
 
+  const getUniqueProducts = (cart) => {
+    const uniqueProducts = cart.reduce((acc, product) => {
+      const existingProduct = acc.find((item) => item.id === product.id)
+      if (existingProduct) {
+        existingProduct.quantity += 1
+      } else {
+        acc.push({ ...product, quantity: 1 })
+      }
+      return acc
+    }, [])
+    return uniqueProducts
+  }
+
+  const uniqueProducts = getUniqueProducts(cart)
+
   const checkOutButton = () => {
     clearCart()
     navigate("/checkoutsuccess")
@@ -40,10 +55,10 @@ function Checkout() {
       </Helmet>
       <h1 className="text-center m-5 font-medium">CHECKOUT</h1>
       <div className="mx-5 md:mx-20">
-        {cart.length > 0 ? (
+        {uniqueProducts.length > 0 ? (
           <>
             <ul>
-              {cart.map((item, index) => (
+              {uniqueProducts.map((item, index) => (
                 <li key={index} className="border-b p-2">
                   <p className="text-md font-bold">{item.title}</p>
                   <div className="relative w-full lg:w-2/6 m-auto">
@@ -62,10 +77,11 @@ function Checkout() {
                     >
                       -
                     </button>
+                    <p>Quantity: {item.quantity}</p>
                     <button
                       aria-label="Add item"
                       className="w-4 m-2 text-lg font-bold border-solid border-2 rounded-md shadow-md hover:shadow-2xl"
-                      onClick={() => addToCart(item)}
+                      onClick={() => addItem(item)}
                     >
                       +
                     </button>
@@ -99,17 +115,14 @@ function Checkout() {
               </button>
               <div className="mx-auto w-50 text-lg "> Or </div>
               <Link to="/" className="text-center">
-                <div className="text-gray-900 mx-auto w-50 flex rounded-lg flex-row justify-center border-2 align-middle shadow-sm hover:shadow-lg p-5 mt-2 mb-2">
-                  <p className="text-center">
-                    Return Back to Home & Keep Shopping
-                  </p>
-                  <span className="sr-only">Return to homepage</span>
+                <div className="text-gray-900 mx-auto w-50 flex rounded-lg flex-row justify-center border-2">
+                  Continue Shopping
                 </div>
               </Link>
             </div>
           </>
         ) : (
-          <p>YOUR CART IS EMPTY.</p>
+          <p>Your cart is empty.</p>
         )}
       </div>
     </>

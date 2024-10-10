@@ -1,29 +1,29 @@
-import { useEffect, useState } from "react";
-// I am using the custom API Hook as demonstrated in module 4 lesson 6.
+import { useEffect, useState } from "react"
+// I am using the custom API Hook exmple from module 4 lesson 6.
 
 function useApi(url) {
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [data, setData] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
+  const [isError, setIsError] = useState(false)
 
   useEffect(() => {
     async function getData() {
       try {
-        setIsLoading(true);
-        setIsError(false);
-        const fetchedData = await fetch(url);
-        const json = await fetchedData.json();
-        setData(json);
+        setIsLoading(true)
+        setIsError(false)
+        const fetchedData = await fetch(url)
+        const json = await fetchedData.json()
+        setData(json)
       } catch (error) {
-        console.log(error);
-        setIsError(true);
+        console.log(error)
+        setIsError(true)
       } finally {
-        setIsLoading(false);
+        setIsLoading(false)
       }
     }
-    getData();
-  }, [url]);
-  return { data, isLoading, isError };
+    getData()
+  }, [url])
+  return { data, isLoading, isError }
 }
 
-export default useApi;
+export default useApi

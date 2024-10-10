@@ -15,7 +15,7 @@ function SearchBar({ products = [] }) {
   console.log("filterProducts", filterProducts)
 
   return (
-    <div className="w-full flex items-center flex-col justify-center m-5 relative">
+    <div className="w-full flex items-center flex-col justify-center m-5 relative ms-0">
       <label htmlFor="search" className="w-2/4 text-md font-bold text-gray-800">
         Looking for something ?
       </label>

@@ -8,10 +8,9 @@ import SkeletonProduct from "../components/loaders/SkeletonProduct"
 function UniqueProduct() {
   let { id } = useParams()
   console.log(id)
+  const apiUrl = import.meta.env.VITE_API_URL
 
-  const { data, isLoading, isError } = useApi(
-    `https://v2.api.noroff.dev/online-shop/${id}`
-  )
+  const { data, isLoading, isError } = useApi(`${apiUrl}/${id}`)
   if (isLoading) {
     return <SkeletonProduct />
   }

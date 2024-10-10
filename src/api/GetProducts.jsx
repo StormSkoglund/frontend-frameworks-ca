@@ -6,9 +6,8 @@ import SkeletonHome from "../components/loaders/SkeletonHome"
 import SearchBar from "../components/search/SearchBar"
 
 function GetProducts() {
-  const { data, isLoading, isError } = useApi(
-    "https://v2.api.noroff.dev/online-shop"
-  )
+  const apiUrl = import.meta.env.VITE_API_URL
+  const { data, isLoading, isError } = useApi(`${apiUrl}`)
 
   if (isLoading) {
     return <SkeletonHome />

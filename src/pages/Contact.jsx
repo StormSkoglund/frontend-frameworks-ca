@@ -118,7 +118,7 @@ function Contact() {
         </article>
         <form className="grid grid-rows-1" onSubmit={handleSubmit(onSubmit)}>
           <label className="text-left mt-10" htmlFor="full-name">
-            YOUR FULL NAME
+            YOUR FULL NAME*
           </label>
           <input
             className=" border-solid border-2 border-theme1 rounded-md w-2/4 p-2 m-2"
@@ -128,7 +128,7 @@ function Contact() {
           />
           <p className="text-red-600">{errors.fullName?.message}</p>
           <label className="text-left" htmlFor="email">
-            E-MAIL
+            E-MAIL*
           </label>
           <input
             placeholder="example@domain.com"
@@ -139,7 +139,7 @@ function Contact() {
           />
           <p className="text-red-600">{errors.email?.message}</p>
           <label className="text-left" htmlFor="subject">
-            SUBJECT
+            SUBJECT*
           </label>
           <input
             className=" border-solid border-2 border-theme1 rounded-md w-2/4 p-2 m-2"
@@ -149,15 +149,15 @@ function Contact() {
           />
           <p className="text-red-600">{errors.subject?.message}</p>
           <label className="text-left" htmlFor="body">
-            MESSAGE
+            MESSAGE*
           </label>
-
           <textarea
             className=" border-solid border-2 border-theme1 rounded-md w-4/4 p-3 m-2"
             id="body"
             {...register("body")}
             autoComplete="off"
-          />
+          />{" "}
+          <p>* All fields are required.</p>
           <p className="text-red-600">{errors.body?.message}</p>
           <button
             type="submit"

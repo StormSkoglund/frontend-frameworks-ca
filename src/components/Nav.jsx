@@ -39,7 +39,7 @@ function Nav() {
         } md:block`}
       >
         <NavLink to="/contact">
-          <p className="text-bold bg-theme1 p-1 w-full text-center rounded-lg text-base text-white">
+          <p className="text-bold p-1 w-full text-center rounded-lg text-white text-lg border-solid border-2 bg-teal-700 hover:shadow-xl">
             CONTACT
           </p>
         </NavLink>

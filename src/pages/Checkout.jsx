@@ -48,12 +48,14 @@ function Checkout() {
                       discountedPrice={item.discountedPrice}
                     />
                     <button
+                      aria-label="Remove item"
                       className="w-4 m-2 text-lg font-bold border-solid border-2 rounded-md shadow-md hover:shadow-2xl"
                       onClick={() => removeItem(item.id)}
                     >
                       -
                     </button>
                     <button
+                      aria-label="Add item"
                       className="w-4 m-2 text-lg font-bold border-solid border-2 rounded-md shadow-md hover:shadow-2xl"
                       onClick={() => addToCart(item)}
                     >
@@ -61,7 +63,7 @@ function Checkout() {
                     </button>
                   </div>
                   <img
-                    className="block object-cover aspect-square mt-3 mb-3 w-40 rounded-e-2xl shadow-2xl"
+                    className="block object-cover aspect-square mt-3 mb-3 w-28 rounded-e-2xl shadow-2xl"
                     src={item.image.url}
                     alt={item.image.alt}
                   />
@@ -69,8 +71,8 @@ function Checkout() {
               ))}
             </ul>
             <div className="flex flex-col items-center justify-between mx-auto border-solid border-2 p-5 m-4 w-fit">
-              <p className="text-md font-bold text-red-500">Empty Cart:</p>
-              <button onClick={() => clearCart()}>
+              <p className="text-md font-bold text-red-700">Empty Cart:</p>
+              <button aria-label="Clear cart" onClick={() => clearCart()}>
                 <FaRegTrashCan />
               </button>
             </div>
@@ -81,7 +83,8 @@ function Checkout() {
             </div>
             <div className="mx-auto block w-2/4 text-center">
               <button
-                className="hover:cursor-pointer px-4 py-2 bg-theme2 text-white m-5 text-large rounded-lg hover:bg-green-800 hover:shadow-slate-600 shadow-md font-semibold"
+                aria-label="Check out"
+                className="hover:cursor-pointer px-4 py-2 bg-teal-700 text-white m-5 text-large rounded-lg hover:bg-green-800 hover:shadow-slate-600 shadow-md font-semibold"
                 onClick={checkOutButton}
               >
                 Place Your Order
@@ -92,6 +95,7 @@ function Checkout() {
                   <p className="text-center">
                     Return Back to Home & Keep Shopping
                   </p>
+                  <span className="sr-only">Return to homepage</span>
                 </div>
               </Link>
             </div>

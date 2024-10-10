@@ -48,7 +48,7 @@ function Contact() {
   let contactContent
   if (submitForm) {
     contactContent = (
-      <div className="bg-theme1 opacity-75 p-3 lg:p-10 m-3  text-black rounded-e-3xl shadow-2xl shadow-slate-800 w-11/12 sm:w-3/4  block mx-auto leading-5">
+      <div className="bg-white border-solid border-2 border-theme1 opacity-75 p-3 lg:p-10 m-3  text-black rounded-e-3xl shadow-xl w-11/12 sm:w-3/4  block mx-auto leading-5">
         <h3 className="mb-3 font-extrabold ">Ticket Submitted</h3>
         <p className="mb-8">
           Thank you for reaching out to us! We value your feedback and are here
@@ -68,8 +68,9 @@ function Contact() {
         </p>
         <p className="text-center mb-2">Go Back</p>
         <Link to="/" className="text-center">
-          <div className="text-black font-extrabold mx-auto flex flex-row justify-center align-middle animate-pulse bg-theme2 p-5">
+          <div className="text-black font-extrabold mx-auto flex flex-row justify-center align-middle bg-white p-5">
             <TiArrowBack />
+            <span className="sr-only">Go back to the homepage</span>
           </div>
         </Link>
       </div>
@@ -158,8 +159,10 @@ function Contact() {
             autoComplete="off"
           />
           <p className="text-red-600">{errors.body?.message}</p>
-          <button className="w-auto px-4 py-2 bg-theme2 text-white m-5  rounded-lg hover:bg-green-800 hover:shadow-slate-600 shadow-md text-center font-semibold">
-            <input type="submit" value="" />
+          <button
+            type="submit"
+            className="w-auto px-4 py-2 bg-teal-700 text-white m-5  rounded-lg hover:bg-green-800 hover:shadow-slate-600 shadow-md text-center font-semibold"
+          >
             SUBMIT FORM
           </button>
         </form>

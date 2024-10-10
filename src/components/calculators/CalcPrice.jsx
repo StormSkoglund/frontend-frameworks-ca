@@ -2,7 +2,7 @@ function CalcPrice({ price, discountedPrice }) {
   if (discountedPrice < price) {
     return (
       <div className="flex flex-row w-fit">
-        <div className="p-2 bg-red-500 opacity-90 text-lg text-white rounded-lg shadow-lg">
+        <div className="p-2 bg-red-700 opacity-90 text-lg text-white rounded-lg shadow-lg">
           <div className="text-sm font-bold">
             On sale: NOK {discountedPrice}
           </div>

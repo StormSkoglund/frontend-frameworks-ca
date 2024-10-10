@@ -3,6 +3,7 @@ import CalcDiscount from "../components/calculators/CalcDiscount.jsx"
 import { FaRegTrashCan } from "react-icons/fa6"
 import { Link, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
+import { Helmet } from "react-helmet-async"
 
 function Checkout() {
   const { cart, removeItem, clearCart, addToCart } = useCart()
@@ -30,6 +31,13 @@ function Checkout() {
 
   return (
     <>
+      <Helmet>
+        <title>BuyThat | Checkout</title>
+        <meta
+          name="description"
+          content="Review your order, add or remove products."
+        />
+      </Helmet>
       <h1 className="text-center m-5 font-medium">CHECKOUT</h1>
       <div className="mx-5 md:mx-20">
         {cart.length > 0 ? (

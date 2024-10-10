@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom"
 import { TiArrowBack } from "react-icons/ti"
+import { Helmet } from "react-helmet-async"
 
 function CheckoutSuccess() {
   return (
     <div>
+      <Helmet>
+        <title>BuyThat | Checkout Was Successful</title>
+        <meta name="description" content="Your order was a success." />
+      </Helmet>
       <h1 className="text-center m-5 font-bold text-2xl text center">
         CHECKOUT WAS SUCCESSFUL
       </h1>

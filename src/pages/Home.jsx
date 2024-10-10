@@ -1,8 +1,16 @@
+import { Helmet } from "react-helmet-async"
 import GetProducts from "../api/GetProducts"
 
 function Home() {
   return (
     <>
+      <Helmet>
+        <title>BuyThat | Home</title>
+        <meta
+          name="description"
+          content="Welcome to BuyThat, your ultimate destination for handpicked items tailored for everyone. Discover unique selections for him, her, and everyone in between."
+        />
+      </Helmet>
       <div className="relative w-10/12 md:w-8/12 h-auto m-auto mt-3">
         <img
           src="/assets/shop2.svg"

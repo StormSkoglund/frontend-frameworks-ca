@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { Link } from "react-router-dom"
 import { TiArrowBack } from "react-icons/ti"
+import { Helmet } from "react-helmet-async"
 
 const schema = yup
   .object({
@@ -48,36 +49,53 @@ function Contact() {
   let contactContent
   if (submitForm) {
     contactContent = (
-      <div className="bg-white border-solid border-2 border-theme1 opacity-75 p-3 lg:p-10 m-3  text-black rounded-e-3xl shadow-xl w-11/12 sm:w-3/4  block mx-auto leading-5">
-        <h3 className="mb-3 font-extrabold ">Ticket Submitted</h3>
-        <p className="mb-8">
-          Thank you for reaching out to us! We value your feedback and are here
-          to assist you with any questions or concerns you may have.
-        </p>
+      <>
+        {" "}
+        <Helmet>
+          <title>BuyThat | Contact </title>
+          <meta
+            name="description"
+            content="Pleace reach out us by filling out and submitting the form on this page."
+          />
+        </Helmet>
+        <div className="bg-white border-solid border-2 border-theme1 opacity-75 p-3 lg:p-10 m-3  text-black rounded-e-3xl shadow-xl w-11/12 sm:w-3/4  block mx-auto leading-5">
+          <h3 className="mb-3 font-extrabold ">Ticket Submitted</h3>
+          <p className="mb-8">
+            Thank you for reaching out to us! We value your feedback and are
+            here to assist you with any questions or concerns you may have.
+          </p>
 
-        <h4 className="mb-3 font-bold">Evaluation Time</h4>
+          <h4 className="mb-3 font-bold">Evaluation Time</h4>
 
-        <p className="mb-8">
-          Once your ticket is submitted, our support team will review it
-          promptly. We strive to respond to all tickets within 24 hours.
-        </p>
-        <p className="mb-5">
-          However, the evaluation time may vary depending on the complexity of
-          your request. Rest assured, we are committed to providing you with a
-          thorough and timely response.
-        </p>
-        <p className="text-center mb-2">Go Back</p>
-        <Link to="/" className="text-center">
-          <div className="text-black font-extrabold mx-auto flex flex-row justify-center align-middle bg-white p-5">
-            <TiArrowBack />
-            <span className="sr-only">Go back to the homepage</span>
-          </div>
-        </Link>
-      </div>
+          <p className="mb-8">
+            Once your ticket is submitted, our support team will review it
+            promptly. We strive to respond to all tickets within 24 hours.
+          </p>
+          <p className="mb-5">
+            However, the evaluation time may vary depending on the complexity of
+            your request. Rest assured, we are committed to providing you with a
+            thorough and timely response.
+          </p>
+          <p className="text-center mb-2">Go Back</p>
+          <Link to="/" className="text-center">
+            <div className="text-black font-extrabold mx-auto flex flex-row justify-center align-middle bg-white p-5">
+              <TiArrowBack />
+              <span className="sr-only">Go back to the homepage</span>
+            </div>
+          </Link>
+        </div>{" "}
+      </>
     )
   } else {
     contactContent = (
       <>
+        <Helmet>
+          <title>BuyThat | Contact </title>
+          <meta
+            name="description"
+            content="Pleace reach out us by filling out and submitting the form on this page."
+          />
+        </Helmet>
         <article className="bg-theme2 opacity-75 p-3 lg:p-10 m-3 font-bold text-black rounded-e-3xl shadow-2xl shadow-slate-800 w-11/12 sm:w-3/4  block mx-auto leading-5 ">
           <h1 className="pb-4 font-bold"> CONTACT FORM</h1>
           <h2 className="pb-4 font-medium">Get in Touch with Us!</h2>
@@ -118,7 +136,7 @@ function Contact() {
         </article>
         <form className="grid grid-rows-1" onSubmit={handleSubmit(onSubmit)}>
           <label className="text-left mt-10" htmlFor="full-name">
-            YOUR FULL NAME
+            YOUR FULL NAME*
           </label>
           <input
             className=" border-solid border-2 border-theme1 rounded-md w-2/4 p-2 m-2"
@@ -128,7 +146,7 @@ function Contact() {
           />
           <p className="text-red-600">{errors.fullName?.message}</p>
           <label className="text-left" htmlFor="email">
-            E-MAIL
+            E-MAIL*
           </label>
           <input
             placeholder="example@domain.com"
@@ -139,7 +157,7 @@ function Contact() {
           />
           <p className="text-red-600">{errors.email?.message}</p>
           <label className="text-left" htmlFor="subject">
-            SUBJECT
+            SUBJECT*
           </label>
           <input
             className=" border-solid border-2 border-theme1 rounded-md w-2/4 p-2 m-2"
@@ -149,7 +167,7 @@ function Contact() {
           />
           <p className="text-red-600">{errors.subject?.message}</p>
           <label className="text-left" htmlFor="body">
-            MESSAGE
+            MESSAGE*
           </label>
 
           <textarea
@@ -158,6 +176,7 @@ function Contact() {
             {...register("body")}
             autoComplete="off"
           />
+          <p>* All fields are required.</p>
           <p className="text-red-600">{errors.body?.message}</p>
           <button
             type="submit"

@@ -4,6 +4,8 @@ import { FaRegTrashCan } from "react-icons/fa6"
 import { Link, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { Helmet } from "react-helmet-async"
+import AddToCart from "../components/cart/AddToCart.jsx"
+import AddMoreProducts from "../components/cart/AddMoreProducts.jsx"
 
 function Checkout() {
   const { cart, removeItem, clearCart, addItem } = useCart()
@@ -28,7 +30,7 @@ function Checkout() {
     const uniqueProducts = cart.reduce((acc, product) => {
       const existingProduct = acc.find((item) => item.id === product.id)
       if (existingProduct) {
-        existingProduct.quantity += 1
+        existingProduct.quantity = (existingProduct.quantity || 0) + 1
       } else {
         acc.push({ ...product, quantity: 1 })
       }
@@ -54,13 +56,13 @@ function Checkout() {
         />
       </Helmet>
       <h1 className="text-center m-5 font-medium">CHECKOUT</h1>
-      <div className="mx-5 md:mx-20">
+      <div className="mx-5 md:mx-40">
         {uniqueProducts.length > 0 ? (
           <>
             <ul>
               {uniqueProducts.map((item, index) => (
-                <li key={index} className="border-b p-2">
-                  <p className="text-md font-bold">{item.title}</p>
+                <li key={index} className="border-b  border-t p-2">
+                  <p className="text-lg text-center font-bold">{item.title}</p>
                   <div className="relative w-full lg:w-2/6 m-auto">
                     <p>Regular Price: NOK {item.price},-</p>
                     <p className="font-semibold">
@@ -78,16 +80,10 @@ function Checkout() {
                       -
                     </button>
                     <p>Quantity: {item.quantity}</p>
-                    <button
-                      aria-label="Add item"
-                      className="w-4 m-2 text-lg font-bold border-solid border-2 rounded-md shadow-md hover:shadow-2xl"
-                      onClick={() => addItem(item)}
-                    >
-                      +
-                    </button>
+                    <AddMoreProducts product={item} />
                   </div>
                   <img
-                    className="block object-cover aspect-square mt-3 mb-3 w-28 rounded-e-2xl shadow-2xl"
+                    className="block object-cover aspect-square mt-3 mb-3 w-40 rounded-e-2xl shadow-2xl"
                     src={item.image.url}
                     alt={item.image.alt}
                   />
@@ -122,7 +118,16 @@ function Checkout() {
             </div>
           </>
         ) : (
-          <p>Your cart is empty.</p>
+          <div className="rounded-e-lg block mx-auto w-fit">
+            <p className="text-center p-5 bg-teal-700 text-white rounded-e-lg shadow-lg mb-5">
+              Your cart is empty.
+            </p>{" "}
+            <Link to="/" className="text-center">
+              <div className="text-gray-900 mx-auto w-50 flex rounded-lg flex-row justify-center border-2">
+                Continue Shopping
+              </div>
+            </Link>
+          </div>
         )}
       </div>
     </>

@@ -17,7 +17,8 @@ export const CartProvider = ({ children }) => {
     if (itemIndex === -1) {
       newCart.push({ ...item, quantity: 1 })
     } else {
-      newCart[itemIndex].quantity += 1
+      const existingItem = newCart[itemIndex]
+      existingItem.quantity = (existingItem.quantity || 0) + 1
     }
     console.log("Updated cart:", newCart)
     newCart.forEach((cartItem) =>
@@ -27,20 +28,26 @@ export const CartProvider = ({ children }) => {
   }
 
   const removeItem = (itemId) => {
-    const itemIndex = cart.findIndex((i) => i.id === itemId)
-    let newCart = [...cart]
-    if (itemIndex !== -1) {
-      if (newCart[itemIndex].quantity > 1) {
-        newCart[itemIndex].quantity -= 1
+    updateCart((prevCart) => {
+      const itemIndex = prevCart.findIndex((i) => i.id === itemId)
+      if (itemIndex === -1) return prevCart
+
+      const newCart = [...prevCart]
+      const existingItem = newCart[itemIndex]
+
+      if ((existingItem.quantity || 0) > 1) {
+        existingItem.quantity -= 1
       } else {
         newCart.splice(itemIndex, 1)
       }
+
       console.log("Updated cart after removal:", newCart)
       newCart.forEach((cartItem) =>
         console.log(`Item: ${cartItem.title}, Quantity: ${cartItem.quantity}`)
       )
-      updateCart(newCart)
-    }
+
+      return newCart
+    })
   }
 
   const addToCart = (product) => {

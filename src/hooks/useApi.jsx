@@ -9,6 +9,7 @@ function useApi(url) {
   useEffect(() => {
     async function getData() {
       try {
+        console.log(url)
         setIsLoading(true)
         setIsError(false)
         const fetchedData = await fetch(url)

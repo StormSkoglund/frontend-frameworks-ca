@@ -6,13 +6,9 @@ import { Link } from "react-router-dom"
 function SearchBar({ products = [] }) {
   const [searchTerm, setSearchTerm] = useState("")
 
-  console.log("searchTerm", searchTerm)
-
   const filterProducts = products.filter((product) =>
     product.title.toLowerCase().startsWith(searchTerm.toLowerCase())
   )
-
-  console.log("filterProducts", filterProducts)
 
   return (
     <div className="w-full flex items-center flex-col justify-center m-5 relative ms-0">

@@ -42,7 +42,7 @@ function Contact() {
 
   function onSubmit(data) {
     reset()
-    console.log(data)
+
     setSubmitForm(true)
   }
 
@@ -180,7 +180,7 @@ function Contact() {
           <p className="text-red-600">{errors.body?.message}</p>
           <button
             type="submit"
-            className="w-auto px-4 py-2 bg-teal-700 text-white m-5  rounded-lg hover:bg-green-800 hover:shadow-slate-600 shadow-md text-center font-semibold"
+            className="w-auto px-4 py-2 bg-teal-700 text-white m-5 rounded-lg hover:bg-green-800 hover:shadow-slate-600 shadow-md text-center font-semibold"
           >
             SUBMIT FORM
           </button>

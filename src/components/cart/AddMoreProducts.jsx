@@ -6,7 +6,7 @@ const AddMoreProducts = ({ product }) => {
   return (
     <button
       aria-label="Add item"
-      className="w-6 m-2 text-lg font-bold border-solid border-2 rounded-md shadow-md hover:shadow-2xl"
+      className="w-6 m-2 text-lg font-bold border-solid border-2 rounded-md shadow-md hover:shadow-2xl z-40 bg-white"
       onClick={() => addToCart(product)}
     >
       +

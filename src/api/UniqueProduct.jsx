@@ -16,7 +16,7 @@ function UniqueProduct() {
   }
   if (isError) {
     return (
-      <div className="animate-pulse text-red-600 bg-slate-600 rounded-md shadow-sm w-20">
+      <div className="animate-pulse text-red-600 text-center bg-slate-600 rounded-md shadow-sm w-20">
         There was an error loading the product, please try again later!
       </div>
     )
@@ -51,7 +51,7 @@ function UniqueProduct() {
 
     return (
       <>
-        <div className="flex flex-col justify-evenly items-center sm:grid sm:grid-cols-2 sm:items-start  sm: m-16 mb-5 border-t-4 border-theme2 border-opacity-40 bg-theme1 bg-opacity-15 w-11/12 mx-auto xl:w-6/12">
+        <div className="flex flex-col justify-evenly items-center sm:grid sm:grid-cols-2 sm:items-start  sm: m-16 mb-5 border-t-4 border-theme2 border-opacity-40 bg-theme1 bg-opacity-15 w-11/12 mx-auto xl:w-6/12 2xl:w-8/12 ;">
           <h2 className="text-center m-2 text-3xl font-extrabold text-slate-700">
             {data.data.title}
           </h2>
@@ -61,7 +61,7 @@ function UniqueProduct() {
           <img
             src={data.data.image.url}
             alt={data.data.image.alt}
-            className="block object-cover aspect-square w-60 m-auto rounded-e-2xl shadow-2xl"
+            className="block object-cover aspect-square w-60 m-auto rounded-e-2xl shadow-2xl 2xl:w-80"
           />
           <div className="relative w-8/12 block mx-auto mb-20 sm:mb-0">
             Price:

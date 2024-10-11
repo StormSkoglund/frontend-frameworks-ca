@@ -14,7 +14,7 @@ function GetProducts() {
   }
   if (isError) {
     return (
-      <div className="animate-pulse text-red-600 bg-white p-20 rounded-md shadow-sm w-20">
+      <div className="animate-pulse text-red-600 bg-white text-center p-20 rounded-md shadow-sm w-20">
         There was an error loading our products!
       </div>
     )
@@ -33,7 +33,7 @@ function GetProducts() {
           <Link key={item.id} to={`/productpage/${item.id}`}>
             <div className="cursor-pointer rounded-e-2xl m-5 overflow-hidden shadow-2xl hover:shadow-black hover:animate-bounce-once hover:transition hover:opacity-80 relative mb-12">
               <img
-                className="block object-cover aspect-square w-full md:w-60"
+                className="block object-cover aspect-square w-full sm:w-60"
                 src={item.image.url}
                 alt={item.image.alt}
               />

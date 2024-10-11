@@ -12,6 +12,8 @@ function Nav() {
     setIsOpen(!isOpen)
   }
 
+  const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0)
+
   return (
     <nav className="flex flex-row align-middle items-center justify-between mx-auto w-11/12 shadow-xl bg-boxbg border-2 rounded-md p-3 mt-2">
       <NavLink to="/">
@@ -47,7 +49,7 @@ function Nav() {
           <div className="relative">
             <BsCart2 />
             <div className="absolute bottom-2 left-5 opacity-90 text-center bg-red-500 text-white rounded-full px-1.5 text-xs">
-              {cart.length}
+              {totalQuantity}
             </div>
           </div>
         </NavLink>

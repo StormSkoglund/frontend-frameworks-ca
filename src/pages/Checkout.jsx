@@ -21,7 +21,7 @@ function Checkout() {
         return total
       }
 
-      return total + price
+      return total + price * product.quantity
     }, 0)
     setTotal(newTotal)
   }, [cart])
@@ -30,9 +30,9 @@ function Checkout() {
     const uniqueProducts = cart.reduce((acc, product) => {
       const existingProduct = acc.find((item) => item.id === product.id)
       if (existingProduct) {
-        existingProduct.quantity = (existingProduct.quantity || 0) + 1
+        existingProduct.quantity += product.quantity
       } else {
-        acc.push({ ...product, quantity: 1 })
+        acc.push({ ...product })
       }
       return acc
     }, [])
@@ -74,7 +74,7 @@ function Checkout() {
                     />
                     <button
                       aria-label="Remove item"
-                      className="w-4 m-2 text-lg font-bold border-solid border-2 rounded-md shadow-md hover:shadow-2xl"
+                      className="w-6 m-2 text-lg font-bold border-solid border-2 rounded-md shadow-md hover:shadow-2xl"
                       onClick={() => removeItem(item.id)}
                     >
                       -
@@ -104,30 +104,17 @@ function Checkout() {
             <div className="mx-auto block w-2/4 text-center">
               <button
                 aria-label="Check out"
-                className="hover:cursor-pointer px-4 py-2 bg-teal-700 text-white m-5 text-large rounded-lg hover:bg-green-800 hover:shadow-slate-600 shadow-md font-semibold"
+                className="hover:cursor-pointer px-4 py-2 bg-teal-700 text-white m-5 text-large rounded-lg hover:bg-green-800"
                 onClick={checkOutButton}
               >
-                Place Your Order
+                Check Out
               </button>
-              <div className="mx-auto w-50 text-lg "> Or </div>
-              <Link to="/" className="text-center">
-                <div className="text-gray-900 mx-auto w-50 flex rounded-lg flex-row justify-center border-2">
-                  Continue Shopping
-                </div>
-              </Link>
             </div>
           </>
         ) : (
-          <div className="rounded-e-lg block mx-auto w-fit">
-            <p className="text-center p-5 bg-teal-700 text-white rounded-e-lg shadow-lg mb-5">
-              Your cart is empty.
-            </p>{" "}
-            <Link to="/" className="text-center">
-              <div className="text-gray-900 mx-auto w-50 flex rounded-lg flex-row justify-center border-2">
-                Continue Shopping
-              </div>
-            </Link>
-          </div>
+          <p className="text-center border-solid border-2 p-40">
+            Your cart is empty.
+          </p>
         )}
       </div>
     </>

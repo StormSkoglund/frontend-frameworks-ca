@@ -9,14 +9,12 @@ function useApi(url) {
   useEffect(() => {
     async function getData() {
       try {
-        console.log(url)
         setIsLoading(true)
         setIsError(false)
         const fetchedData = await fetch(url)
         const json = await fetchedData.json()
         setData(json)
       } catch (error) {
-        console.log(error)
         setIsError(true)
       } finally {
         setIsLoading(false)

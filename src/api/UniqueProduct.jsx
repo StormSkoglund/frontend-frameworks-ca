@@ -7,7 +7,6 @@ import SkeletonProduct from "../components/loaders/SkeletonProduct"
 
 function UniqueProduct() {
   let { id } = useParams()
-  console.log(id)
   const apiUrl = import.meta.env.VITE_API_URL
 
   const { data, isLoading, isError } = useApi(`${apiUrl}/${id}`)

@@ -63,30 +63,32 @@ function Checkout() {
               {uniqueProducts.map((item, index) => (
                 <li key={index} className="border-b  border-t p-2">
                   <p className="text-lg text-center font-bold">{item.title}</p>
-                  <div className="relative w-full lg:w-2/6 m-auto">
-                    <p>Regular Price: NOK {item.price},-</p>
-                    <p className="font-semibold">
-                      With Discounts: NOK {item.discountedPrice},-
-                    </p>
-                    <CalcDiscount
-                      price={item.price}
-                      discountedPrice={item.discountedPrice}
-                    />
-                    <button
-                      aria-label="Remove item"
-                      className="w-6 m-2 text-lg font-bold border-solid border-2 rounded-md shadow-md hover:shadow-2xl"
-                      onClick={() => removeItem(item.id)}
-                    >
-                      -
-                    </button>
-                    <p>Quantity: {item.quantity}</p>
-                    <AddMoreProducts product={item} />
-                  </div>
                   <img
                     className="block object-cover aspect-square mt-3 mb-3 w-40 rounded-e-2xl shadow-2xl"
                     src={item.image.url}
                     alt={item.image.alt}
                   />
+                  <div className="relative w-full lg:w-2/6 m-auto text-center">
+                    <CalcDiscount
+                      price={item.price}
+                      discountedPrice={item.discountedPrice}
+                    />
+                    <p>Regular Price: NOK {item.price},-</p>
+                    <p className="font-semibold text-center">
+                      With Discounts: NOK {item.discountedPrice},-
+                    </p>{" "}
+                    <span className="flex flex-row items-center justify-center">
+                      <button
+                        aria-label="Remove item"
+                        className="w-6 m-2 text-lg font-bold border-solid border-2 rounded-md shadow-md hover:shadow-2xl"
+                        onClick={() => removeItem(item.id)}
+                      >
+                        -
+                      </button>
+                      <p>Quantity: {item.quantity}</p>
+                      <AddMoreProducts product={item} />
+                    </span>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -107,8 +109,16 @@ function Checkout() {
                 className="hover:cursor-pointer px-4 py-2 bg-teal-700 text-white m-5 text-large rounded-lg hover:bg-green-800"
                 onClick={checkOutButton}
               >
-                Check Out
+                Place Your Order
               </button>
+              <div className="mx-auto w-50 text-lg "> Or </div>
+              <Link to="/" className="text-center">
+                <div className="text-gray-900 mx-auto w-50 flex rounded-lg flex-row justify-center border-2 align-middle shadow-sm hover:shadow-lg p-5 mt-2 mb-2">
+                  <p className="text-center">
+                    Return Back to Home & Keep Shopping
+                  </p>
+                </div>
+              </Link>
             </div>
           </>
         ) : (

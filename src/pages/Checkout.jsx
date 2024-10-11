@@ -122,9 +122,18 @@ function Checkout() {
             </div>
           </>
         ) : (
-          <p className="text-center border-solid border-2 p-40">
-            Your cart is empty.
-          </p>
+          <>
+            <p className="text-center border-solid border-2 p-40">
+              Your cart is empty.
+            </p>
+            <Link to="/" className="text-center">
+              <div className="text-gray-900 mx-auto w-50 flex rounded-lg flex-row justify-center border-2 align-middle shadow-sm hover:shadow-lg p-5 mt-2 mb-2">
+                <p className="text-center">
+                  Return Back to Home & Keep Shopping
+                </p>
+              </div>
+            </Link>
+          </>
         )}
       </div>
     </>

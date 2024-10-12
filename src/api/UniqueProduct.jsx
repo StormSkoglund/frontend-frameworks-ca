@@ -4,6 +4,7 @@ import CalcPrice from "../components/calculators/CalcPrice"
 import AddToCart from "../components/cart/AddToCart"
 import CalcDiscount from "../components/calculators/CalcDiscount"
 import SkeletonProduct from "../components/loaders/SkeletonProduct"
+import { CalcRatings } from "../components/calculators/CalcRatings"
 
 function UniqueProduct() {
   let { id } = useParams()
@@ -40,7 +41,9 @@ function UniqueProduct() {
           className="p-4 text-sm bg-gray-100 rounded-md shadow-md mb-4"
         >
           <p className="font-bold">{review.username}</p>
-          <p className="text-md">Rating: {review.rating}</p>
+          <div className="text-md">
+            Rating: <CalcRatings rating={review.rating} />{" "}
+          </div>
           <p>{review.description}</p>
         </div>
       ))

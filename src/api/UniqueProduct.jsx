@@ -32,6 +32,10 @@ function UniqueProduct() {
         alt: data.data.image.alt,
       },
     }
+    let totalReview = null
+    if (data.data.rating != 0) {
+      totalReview = <CalcRatings rating={data.data.rating} />
+    }
 
     let reviewContent
     if (data.data.reviews && data.data.reviews.length > 0) {
@@ -57,7 +61,7 @@ function UniqueProduct() {
           <h2 className="text-center m-2 text-3xl font-extrabold text-slate-700">
             {data.data.title}
             <div className="flex flex-row items-center justify-center">
-              <CalcRatings rating={data.data.rating} />
+              {totalReview}
             </div>
           </h2>
           <p className="text-left font-medium text-sm m-2 md:m-5 rounded-s-2xl bg-theme1 bg-opacity-20 p-2 md:p-4">

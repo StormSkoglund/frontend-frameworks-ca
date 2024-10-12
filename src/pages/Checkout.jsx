@@ -4,11 +4,10 @@ import { FaRegTrashCan } from "react-icons/fa6"
 import { Link, useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react"
 import { Helmet } from "react-helmet-async"
-import AddToCart from "../components/cart/AddToCart.jsx"
 import AddMoreProducts from "../components/cart/AddMoreProducts.jsx"
 
 function Checkout() {
-  const { cart, removeItem, clearCart, addItem } = useCart()
+  const { cart, removeItem, clearCart } = useCart()
   const [total, setTotal] = useState(0)
   const navigate = useNavigate()
 
@@ -123,7 +122,7 @@ function Checkout() {
           </>
         ) : (
           <>
-            <p className="text-center border-solid border-2 p-40">
+            <p className="text-center border-solid border-2 p-10 md:p-40">
               Your cart is empty.
             </p>
             <Link to="/" className="text-center">

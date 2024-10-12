@@ -11,12 +11,12 @@ const AddToCart = ({ product }) => {
           ADD TO CART
         </button>
       }
-      position="right center"
+      position="right center absolute"
       onOpen={() => addToCart(product)}
     >
-      <div className="border-theme1 border-4 rounded-e-lg shadow-lg p-5 bg-white text-sm text-black w-4/5">
-        {product.title} added to cart! Click outside this window to close
-        overlay!
+      <div className="border-theme1 border-4 rounded-e-lg shadow-lg p-1 text-wrap md:p-5 bg-white text-sm text-black w-4/5">
+        <p className="mb-2 font-bold">{product.title} added to cart!</p>{" "}
+        <p>Click outside this window to close overlay!</p>
       </div>
     </Popup>
   )

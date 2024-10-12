@@ -4,6 +4,10 @@
 
 Welcome to BuyThat, your ultimate destination for handpicked items tailored for everyone. Discover unique selections for him, her, and everyone in between.
 
+# Tech stack
+
+This site was built with React and Tailwind was used for styling, together with libraries such as React-Icons and Reactjs-popup.
+
 # eCom Store Assignment
 
 ## Goal
@@ -107,4 +111,4 @@ Currently, two official plugins are available:
 
 # Acknowledgements:
 
-A special shout out to my co-students and teachers for helping me out when nothing seemed to be working, thank you all very much!
+A special shout out to my co-students and teachers for helping me out when nothing seemed to be working, thank you all very much! The hero image on the landing page was generated with Copilot by Bing.

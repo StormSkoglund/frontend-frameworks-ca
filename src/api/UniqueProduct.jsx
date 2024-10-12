@@ -56,6 +56,9 @@ function UniqueProduct() {
         <div className="flex flex-col justify-evenly items-center sm:grid sm:grid-cols-2 sm:items-start  sm: m-16 mb-5 border-t-4 border-theme2 border-opacity-40 bg-theme1 bg-opacity-15 w-11/12 mx-auto xl:w-6/12 2xl:w-8/12 ;">
           <h2 className="text-center m-2 text-3xl font-extrabold text-slate-700">
             {data.data.title}
+            <div className="flex flex-row items-center justify-center">
+              <CalcRatings rating={data.data.rating} />
+            </div>
           </h2>
           <p className="text-left font-medium text-sm m-2 md:m-5 rounded-s-2xl bg-theme1 bg-opacity-20 p-2 md:p-4">
             {data.data.description}
@@ -65,6 +68,7 @@ function UniqueProduct() {
             alt={data.data.image.alt}
             className="block object-cover aspect-square w-60 m-auto rounded-e-2xl shadow-2xl 2xl:w-80"
           />
+
           <div className="relative w-8/12 block mx-auto mb-20 sm:mb-0">
             Price:
             <CalcPrice

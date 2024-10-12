@@ -1,37 +1,26 @@
-import { FaStarHalfAlt } from "react-icons/fa"
-import { FaStar } from "react-icons/fa6"
-import { ImStarEmpty } from "react-icons/im"
+import { FaStar, FaStarHalfAlt } from "react-icons/fa"
+import { FaRegStar } from "react-icons/fa6"
 
 export const CalcRatings = ({ rating }) => {
   const fullStar = <FaStar />
   const halfStar = <FaStarHalfAlt />
-  const hollowStar = <ImStarEmpty />
+  const hollowStar = <FaRegStar />
 
   const stars = []
+  const integerPart = Math.floor(rating)
+  const decimalPart = rating - integerPart
 
-  if (rating % 1 !== 0) {
-    const integerPart = Math.floor(rating)
-    const decimalPart = rating - integerPart
+  for (let i = 0; i < integerPart; i++) {
+    stars.push(<span key={i}>{fullStar}</span>)
+  }
 
-    for (let i = 0; i < integerPart; i++) {
-      stars.push(<span key={i}>{fullStar}</span>)
-    }
+  if (decimalPart >= 0.5) {
+    stars.push(<span key={integerPart}>{halfStar}</span>)
+  }
 
-    if (decimalPart >= 0.5) {
-      stars.push(<span key={integerPart}>{halfStar}</span>)
-    }
-
-    for (let i = integerPart + 1; i < 5; i++) {
-      stars.push(<span key={i + integerPart}>{hollowStar}</span>)
-    }
-  } else {
-    for (let i = 0; i < rating; i++) {
-      stars.push(<span key={i}>{fullStar}</span>)
-    }
-
-    for (let i = rating; i < 5; i++) {
-      stars.push(<span key={i + rating}>{hollowStar}</span>)
-    }
+  const totalStars = decimalPart >= 0.5 ? integerPart + 1 : integerPart
+  for (let i = totalStars; i < 5; i++) {
+    stars.push(<span key={i}>{hollowStar}</span>)
   }
 
   return (

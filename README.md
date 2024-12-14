@@ -100,15 +100,6 @@ Installation Steps:
 
 Static host : https://buythat.netlify.app/
 
-# Further information about React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
 # Acknowledgements:
 
 A special shout out to my co-students and teachers for helping me out when nothing seemed to be working, thank you all very much! The hero image on the landing page was generated with Copilot by Bing.
